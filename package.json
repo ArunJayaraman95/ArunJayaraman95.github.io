@@ -1,0 +1,35 @@
+{
+  "name": "arunjayaraman95.github.io",
+  "version": "1.0.0",
+  "description": "Portfolio Website for Arun",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "sass scss:assets/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArunJayaraman95/ArunJayaraman95.github.io.git"
+  },
+  "keywords": [
+    "Bootstrap",
+    "sass",
+    "scss",
+    "portfolio"
+  ],
+  "author": "Arun Jayaraman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArunJayaraman95/ArunJayaraman95.github.io/issues"
+  },
+  "homepage": "https://github.com/ArunJayaraman95/ArunJayaraman95.github.io#readme",
+  "devDependencies": {
+    "sass": "^1.52.0"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.1.1",
+    "autoprefixer": "^10.4.7",
+    "bootstrap": "^5.1.3",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0"
+  }
+}
