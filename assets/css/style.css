@@ -11186,6 +11186,16 @@ textarea.form-control-lg {
   width: 8rem;
   border-radius: 100px;
 }
+.menu a i {
+  display: inline-block;
+  width: 50px;
+  opacity: 0.8;
+}
+.menu a i:hover {
+  color: #fff;
+  opacity: 1;
+  transition: 0.3s;
+}
 
 .intro-section {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.95), rgba(194, 29, 29, 0.95));
@@ -11205,6 +11215,9 @@ textarea.form-control-lg {
 }
 .intro-section .container .display-2 {
   text-align: center;
+}
+.intro-section .container .display-2--description {
+  font-size: 1.5rem;
 }
 
 .intros .video-box {
