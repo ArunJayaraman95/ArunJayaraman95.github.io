@@ -12,9 +12,14 @@
 
 .contact-box {
     position: relative;
-
+    display: flex;
+    flex-direction: row;
     &__icon {
-        color: $primary;
+        color: $secondary;
+        // background-color: green;
+        vertical-align: middle;
+        padding: 1.25rem 0.5rem 0.5rem 0.5rem;
+
     }
 
     &__info {
