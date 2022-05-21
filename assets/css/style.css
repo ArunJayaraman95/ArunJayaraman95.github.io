@@ -11154,6 +11154,22 @@ textarea.form-control-lg {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.display-2 {
+  margin-bottom: 1rem;
+  text-transform: capitalize;
+}
+.display-2--intro {
+  display: inline-block;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+}
+.display-2--description {
+  font-size: 1rem;
+  display: block;
+  margin-top: 2rem;
+  text-transform: none;
+}
+
 .menu {
   background: linear-gradient(to right, rgba(153, 38, 240, 0.9), rgba(209, 34, 227, 0.95));
 }
@@ -11164,6 +11180,20 @@ textarea.form-control-lg {
   color: #fff !important;
   text-transform: capitalize;
   font-weight: 600;
+}
+
+.intro-section {
+  background: linear-gradient(to right, rgba(153, 38, 240, 0.9), rgba(209, 34, 227, 0.95));
+  padding: 10rem 0 0 0;
+  width: 100;
+  height: 100%;
+}
+
+.intros .video-box {
+  position: relative;
+}
+.intros .video-box img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
