@@ -1,253 +1,222 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arun Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/1f1c59b46f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>Computer Engineer</p>
+            <h1>Hi, I'm <span>Arun</span><br> from Detroit</h1>
+        </div>
+    </div>
+</div>
 <!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+   ###    ########   #######  ##     ## ########
+  ## ##   ##     ## ##     ## ##     ##    ##
+ ##   ##  ##     ## ##     ## ##     ##    ##
+##     ## ########  ##     ## ##     ##    ##
+######### ##     ## ##     ## ##     ##    ##
+##     ## ##     ## ##     ## ##     ##    ##
+##     ## ########   #######   #######     ##
 -->
-<html>
-	<head>
-		<title>Massively by HTML5 UP</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="https://preview.redd.it/what-do-you-think-of-enrico-pucci-as-an-antagonist-ive-read-v0-hl8fzze1baua1.jpg?auto=webp&s=ec4a2ffb412d5d3a391ef75c9cae2ddc72da1b55" alt="Jolyne">
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About Me</h1>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quaerat enim neque, autem similique dicta recusandae velit deleniti illum eaque deserunt excepturi voluptatem quis pariatur, debitis sapiente, eius ab voluptatum repellendus.</p>
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+                <div class="tab-titles">
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                    <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Python</span><br>Interfaces</li>
+                        <li><span>C++</span><br>Interfaces</li>
+                        <li><span>ROS</span><br>Interfaces</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>XP</span><br>Interfaces</li>
+                        <li><span>XP</span><br>Interfaces</li>
+                        <li><span>XP</span><br>Interfaces</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Master in Robotics</span><br>Wayne State University - May 2023</li>
+                        <li><span>Bachelor in Computer Science</span><br>Wayne State University - May 2022</li>
+                        <li><span>Bachelor in Mathematics</span><br>Wayne State University - May 2022</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+  #####
+ #     # ###### #####  #    # #  ####  ######  ####
+ #       #      #    # #    # # #    # #      #
+  #####  #####  #    # #    # # #      #####   ####
+       # #      #####  #    # # #      #           #
+ #     # #      #   #   #  #  # #    # #      #    #
+  #####  ###### #    #   ##   #  ####  ######  ####
 
-				<!-- Intro -->
-					<div id="intro">
-						<h1>Arun Jayaraman</h1>
-						<p>Mathematics/Computer Science senior at Wayne State University</p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+-->
+<div id="services">
+    <div class="container">
+        <h1 class="sub-title">My services</h1>
+        <div class="services-list">
+            <div>
+                <i class=" fa fa-solid fa-terminal"></i>
+                <h2>Coding</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo odit quidem voluptatum. Ratione saepe assumenda omnis! Consectetur vero neque modi, deleniti laboriosam tempora explicabo, consequatur omnis, alias delectus dignissimos.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div>
+                <i class="fa fa-solid fa-motorcycle"></i>
+                <h2>Motorcycles</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo odit quidem voluptatum. Ratione saepe assumenda omnis! Consectetur vero neque modi, deleniti laboriosam tempora explicabo, consequatur omnis, alias delectus dignissimos.</p>
+                <a href="#">Learn More</a>
+            </div>
+            <div>
+                <i class="fa fa-solid fa-cube"></i>
+                <h2>3D Printing</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis explicabo odit quidem voluptatum. Ratione saepe assumenda omnis! Consectetur vero neque modi, deleniti laboriosam tempora explicabo, consequatur omnis, alias delectus dignissimos.</p>
+                <a href="#">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
 
-				<!-- Header -->
-					<header id="header">
-						<a href="index.html" class="logo">Home</a>
-					</header>
+<!--
+ ######
+ #     #  ####  #####  ##### ######  ####  #      #  ####
+ #     # #    # #    #   #   #      #    # #      # #    #
+ ######  #    # #    #   #   #####  #    # #      # #    #
+ #       #    # #####    #   #      #    # #      # #    #
+ #       #    # #   #    #   #      #    # #      # #    #
+ #        ####  #    #   #   #       ####  ###### #  ####
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index.html">Resume</a></li>
-							<li><a href="generic.html">Projects</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
-							<li><a href="elements.html">Elements Reference</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="#" class="icon brands fa-youtube"><span class="label">Youtube</span></a></li>
-							<li><a href="#" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-						</ul>
-					</nav>
+-->
 
-				<!-- Main -->
-					<div id="main">
+<div id="portfolio">
+    <div class="container">
+        <h1 class="sub-title">My Work</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="https://images.newrepublic.com/fd2897148e0f8a0f2af82625c4d438fd44ff0f5b.jpeg?w=1200&h=630&crop=faces&fit=crop&fm=jpg" alt="adventure time">
+                <div class="layer">
+                    <h3>Pic 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="https://www.webbikeworld.com/wp-content/uploads/2023/07/2023-BMW-G-310-R-4-scaled.jpg" alt="adventure time">
+                <div class="layer">
+                    <h3>Pic 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="https://clearviewplastic.com/cdn/shop/products/Ender3s1-8.jpg?v=1673637658" alt="adventure time">
+                <div class="layer">
+                    <h3>Pic 1</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="btn">See More</a>
+    </div>
+</div>
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								<header class="major">
-									<a href="Arun-Jayaraman-Resume.pdf" target = "_blank">Resume PDF</a>
-									<h2>Resume</h2>
-									<h4>Summary</h4>
-                                    <p>Mathematics and Computer Science senior with experience working with and leading teams to meet goals. Demonstrated ability to use scripting languages such as Python and Bash to automate processes, languages like SQL and R for data analysis, as well as front-end languages including React and Typescript</p>
-								</header>
-                                <h2>Education</h2>
-                                <p>Wayne State University ~ M.S. in Computer Science<em> (2023)</em></p>
-                                <p>Wayne State University ~ B.S. in Mathematics<em> (2022)</em></p>
-                                <p>Wayne State University ~ B.S in Computer Science<em> (2022)</em></p>
-                                <br>
-                                <h2>Relevant Coursework</h2>
-                                <h3>Mathematics</h3>
-                                    <h6>Calculus III</h6>
-                                    <h6>Differential Equations</h6>
-                                    <h6>Linear Algebra</h6>
-                                    <h6>Real Analysis</h6>
-                                    <h6>Probability Theory</h6>
-                                    <h6>Statistical Computing & Data Analysis with R</h6>
-                                    <h6>Numerical Methods</h6>
-                                    <h6>Abstract Algebra</h6>
-                                <h3>Computer Science</h3>
-                                    <h6>Java Programming</h6>
-                                    <h6>Software Engineering</h6>
-                                    <h6>Theoretical Computer Science</h6>
-                                    <h6>Computer Architecture</h6>
-                                    <h6>Game Programming</h6>
-                                    <h6>Design & Analysis of Algorithms</h6>
-                                    <h6>Artificial Intelligence I</h6>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-                                <br>
-								<a href="#" class="image main"><img src="images/pic01.jpg" alt="" /></a>
-								<ul class="actions special">
-									<li><a href="#" class="button large">Full Story</a></li>
-								</ul>
-							</article>
+<!--
+  #####
+ #     #  ####  #    # #####   ##    ####  #####
+ #       #    # ##   #   #    #  #  #    #   #
+ #       #    # # #  #   #   #    # #        #
+ #       #    # #  # #   #   ###### #        #
+ #     # #    # #   ##   #   #    # #    #   #
+  #####   ####  #    #   #   #    #  ####    #
 
-						<!-- Posts -->
-							<section class="posts">
-								<article>
-									<header>
-										<span class="date">April 24, 2017</span>
-										<h2><a href="#">Sed magna<br />
-										ipsum faucibus</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic02.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 22, 2017</span>
-										<h2><a href="#">Primis eget<br />
-										imperdiet lorem</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic03.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 18, 2017</span>
-										<h2><a href="#">Ante mattis<br />
-										interdum dolor</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic04.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 14, 2017</span>
-										<h2><a href="#">Tempus sed<br />
-										nulla imperdiet</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic05.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 11, 2017</span>
-										<h2><a href="#">Odio magna<br />
-										sed consectetur</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic06.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-								<article>
-									<header>
-										<span class="date">April 7, 2017</span>
-										<h2><a href="#">Augue lorem<br />
-										primis vestibulum</a></h2>
-									</header>
-									<a href="#" class="image fit"><img src="images/pic07.jpg" alt="" /></a>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis magna etiam.</p>
-									<ul class="actions special">
-										<li><a href="#" class="button">Full Story</a></li>
-									</ul>
-								</article>
-							</section>
+-->
 
-						<!-- Footer -->
-							<footer>
-								<div class="pagination">
-									<!--<a href="#" class="previous">Prev</a>-->
-									<a href="#" class="page active">1</a>
-									<a href="#" class="page">2</a>
-									<a href="#" class="page">3</a>
-									<span class="extra">&hellip;</span>
-									<a href="#" class="page">8</a>
-									<a href="#" class="page">9</a>
-									<a href="#" class="page">10</a>
-									<a href="#" class="next">Next</a>
-								</div>
-							</footer>
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class="fa fa-paper-plane"></i>ArunJayaraman.AJ@gmail.com</p>
+                <p><i class="fa fa-phone-square-alt"></i>248-266-8138</p>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/arun.jayaraman/?hl=en" target="blank"><i class="fa fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/arun-jayaraman-a158011a3/" target="blank"><i class="fa fa-brands fa-linkedin"></i></a>
+                    <a href="#" target="blank"><i class="fa fa-brands fa-twitter-square"></i></a>
+                    <a href="#" target="blank"><i class="fa fa-brands fa-youtube"></i></a>
+                    <a href="https://github.com/ArunJayaraman95" target="blank"><i class="fa fa-brands fa-github"></i></a>
+                </div>
+                <a href="images/Resume_ArunJayaraman.pdf" download class="btn btn2">Download Resume</a>
+            </div>
+            <div class="contact-right">
+                <form action="">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Arun <i class="fa fa-heart"></i></p>
+    </div>
+</div>
 
-					</div>
+<script>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<section>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field">
-										<label for="name">Name</label>
-										<input type="text" name="name" id="name" />
-									</div>
-									<div class="field">
-										<label for="email">Email</label>
-										<input type="text" name="email" id="email" />
-									</div>
-									<div class="field">
-										<label for="message">Message</label>
-										<textarea name="message" id="message" rows="3"></textarea>
-									</div>
-								</div>
-								<ul class="actions">
-									<li><input type="submit" value="Send Message" /></li>
-								</ul>
-							</form>
-						</section>
-						<section class="split contact">
-							<section class="alt">
-								<h3>Address</h3>
-								<p>1234 Somewhere Road #87257<br />
-								Nashville, TN 00000-0000</p>
-							</section>
-							<section>
-								<h3>Phone</h3>
-								<p><a href="#">(000) 000-0000</a></p>
-							</section>
-							<section>
-								<h3>Email</h3>
-								<p><a href="#">info@untitled.tld</a></p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-								</ul>
-							</section>
-						</section>
-					</footer>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
 
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-					</div>
+    function opentab(tabname) {
+        for (tablink of tablinks) {
+            tablink.classList.remove("active-link");
+        }
+        for (tabcontent of tabcontents) {
+            tabcontent.classList.remove("active-tab");
+        }
 
-			</div>
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
-	</body>
+</script>
+
+
+</body>
 </html>
