@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import './Navbar.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import MobileNav from "../MobileNav/MobileNav";
 const Navbar = () => {
+
+    const [openMenu, setOpenMenu] = useState(false);
+
+    const toggleMenu = () => {
+        setOpenMenu(!openMenu);
+    }
+
     return (
     <>
+        <MobileNav isOpen={openMenu} toggleMenu={toggleMenu}/>
         <nav className="nav-wrapper">
         
             <div className="nav-content">
@@ -19,8 +27,8 @@ const Navbar = () => {
                     <button className="contact-btn" onClick={() => {}}>Prints</button>
                 </ul>
 
-                <button className="menu-btn" onClick={() => {}}>
-                    <FontAwesomeIcon icon={faBars} />
+                <button className="menu-btn" onClick={toggleMenu}>
+                    <FontAwesomeIcon icon={openMenu ? faTimes : faBars} />
                 </button>
             </div>
         </nav>
