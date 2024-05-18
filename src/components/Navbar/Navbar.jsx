@@ -7,7 +7,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 const Navbar = () => {
 
     const [menuOpen, setMenuOpen] = useState(false);
-
+    // TODO: Make this a slide out navbar that occupies whole screen
     return (
         <nav className={styles.navbar}>
             <a className={styles.title} href="/">Portfolio</a>
