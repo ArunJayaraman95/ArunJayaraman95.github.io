@@ -2,15 +2,25 @@ import React, {useState} from "react";
 import styles from "./Navbar.module.css"
 import {getImageUrl} from "../../utils"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false);
+
     return (
         <nav className={styles.navbar}>
             <a className={styles.title} href="/">Portfolio</a>
             <div className={styles.menu}>
-                <FontAwesomeIcon icon={faBars}/>
-                <ul className={styles.menuItems}>
+                <FontAwesomeIcon 
+                    className={styles.menuBtn} 
+                    icon={menuOpen ? faTimes: faBars} 
+                    onClick={() => setMenuOpen(!menuOpen)} 
+                />
+                <ul 
+                    className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
+                    onClick={() => setMenuOpen(false)}
+                    >
                     <li><a href="#favorites">Favorites</a></li>
                     <li><a href="#anilist">Anilist</a></li>
                     <li><a href="#printing">Printing</a></li>
