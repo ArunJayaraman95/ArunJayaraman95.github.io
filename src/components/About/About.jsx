@@ -12,26 +12,26 @@ const About = () => {
             <div className={styles.content}>
                 <img
                     className={styles.aboutImage}
-                    src={getImageUrl("images/squareph.png")}
+                    src={getImageUrl("images/about.png")}
                     alt="About image"
                 />
                 <ul className={styles.aboutItems}>
                     <li className={styles.aboutItem}>
-                        <img src={getImageUrl("images/squareph.png")} alt="" />
+                        <img src={getImageUrl("images/coding.png")} alt="" />
                         <div className={styles.aboutItemText}>
                             <h3>Software Engineering</h3>
                             <p>Experience developing in Python and C++</p>
                         </div>
                     </li>
                     <li className={styles.aboutItem}>
-                        <img src={getImageUrl("images/squareph.png")} alt="" />
+                        <img src={getImageUrl("images/printing.png")} alt="" />
                         <div className={styles.aboutItemText}>
                             <h3>3D Printing</h3>
                             <p>Printing design pieces</p>
                         </div>
                     </li>
                     <li className={styles.aboutItem}>
-                        <img src={getImageUrl("images/squareph.png")} alt="" />
+                        <img src={getImageUrl("images/painting.png")} alt="" />
                         <div className={styles.aboutItemText}>
                             <h3>Painting</h3>
                             <p>Animation</p>
