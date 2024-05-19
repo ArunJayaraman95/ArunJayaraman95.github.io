@@ -1,0 +1,29 @@
+[
+    {
+      "role": "Computer Engineer",
+      "organization": "DCS",
+      "startDate": "Aug 2022",
+      "endDate": "Present",
+      "experiences": ["Developed custom Unreal Engine plugins in C++", "Automated manual tasks in Python reducing time by more than 99%"],
+      "imageSrc": "images/dcs.png"
+    },
+    {
+      "role": "Software/UI Lead",
+      "organization": "Wayne State University Robotics Club",
+      "startDate": "Jun, 2021",
+      "endDate": "Aug, 2022",
+      "experiences": ["Utilized PyQt to create an extensive GUI to execute ROS commands to activate robot components and visualize activity status", "Simulated robot sensors such as lidar and camera using Gazebo and RViz"],
+      "imageSrc": "images/wsu.png"
+    },
+    {
+      "role": "Teaching Assistant",
+      "organization": "Wayne State University",
+      "startDate": "Jan 2022",
+      "endDate": "Jun 2022",
+      "experiences": [
+        "Lead lab sections that total 60 students to instruct and assist them in C++",
+        "Graded lab assignments and provided tutoring after hours"
+      ],
+      "imageSrc": "images/wsu.png"
+    }
+  ]
