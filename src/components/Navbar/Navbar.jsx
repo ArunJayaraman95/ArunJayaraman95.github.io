@@ -3,6 +3,7 @@ import styles from "./Navbar.module.css"
 import {getImageUrl} from "../../utils"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
@@ -21,10 +22,10 @@ const Navbar = () => {
                     className={`${styles.menuItems} ${menuOpen && styles.menuOpen}`}
                     onClick={() => setMenuOpen(false)}
                     >
-                    <li><a href="#favorites">Favorites</a></li>
-                    <li><a href="#anilist">Anilist</a></li>
-                    <li><a href="/printing">Printing</a></li>
-                    <li><a href="Contact">Contact</a></li>
+                    <li><Link to="/favorites">Favorites</Link></li>
+                    <li><Link to="/anilist">Anilist</Link></li>
+                    <li><Link to="/printing">Printing</Link></li>
+                    <li><Link to="/contact">Contact Me</Link></li>
                 </ul>
             </div>
         </nav>
