@@ -33,6 +33,10 @@
     text-decoration: none;
 }
 
+.menuBtn {
+    display: none;
+}
+
 FontAwesomeIcon {
     color: red;
 }
