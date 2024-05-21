@@ -1,0 +1,37 @@
+[
+  {
+    "color": "Red",
+    "hex": "#b62323",
+    "grams": 426
+  },
+  {
+    "color": "Blue",
+    "hex": "##3461eb",
+    "grams": 935
+  },
+  {
+    "color": "Black",
+    "hex": "#252525",
+    "grams": 234
+  },
+  {
+    "color": "White",
+    "hex": "#ccc",
+    "grams": 671
+  },
+  {
+    "color": "Gold",
+    "hex": "#d9bf16",
+    "grams": 585
+  },
+  {
+    "color": "Orange",
+    "hex": "#eb8d13",
+    "grams": 275
+  },
+  {
+    "color": "Blue-Green",
+    "hex": "linear-gradient(90deg, #1b39a6 20%, #0d8244 80%)",
+    "grams": 904
+  }
+]
