@@ -1,6 +1,6 @@
 import { useState } from "react";
 import reactLogo from "./assets/images/react.svg";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, HashRouter } from "react-router-dom";
 
 import styles from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
@@ -15,13 +15,13 @@ import PrintPage from "./pages/PrintPage";
 function App() {
   return (
     <div className={styles.App}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="/printing" element={<PrintPage />} />
           {/* <Route path="*" element={<NoPage />} /> */}
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
