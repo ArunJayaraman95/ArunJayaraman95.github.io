@@ -15,7 +15,7 @@
 
 .socials {
   height: 3rem;
-  width: 50%;
+  width: 60%;
   margin: auto;
   margin-top: 3rem;
   display: flex;
@@ -39,6 +39,7 @@
   margin-top: 30px;
   margin-bottom: 30px;
   gap: 10px;
+  text-align: center;
 }
 .copyright .name {
   font-weight: 300;
@@ -46,8 +47,16 @@
 }
 .copyright .copyrightsymbol {
   font-weight: 100;
+  font-size: 0.9rem;
 }
 .copyright .rights {
+  font-size: 0.9rem;
   font-weight: 100;
   font-style: italic;
+}
+
+@media screen and (max-width: 500px) {
+  .socials {
+    width: 80%;
+  }
 }/*# sourceMappingURL=Footer.module.css.map */
