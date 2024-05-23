@@ -1,0 +1,55 @@
+@import "../../vars.css";
+.container {
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  padding: 0 10% 0 10%;
+  justify-content: space-between;
+  margin: 2rem;
+  color: var(--color-text);
+}
+
+.title {
+  font-size: 10rem;
+  padding: 10px;
+  margin: 5px;
+}
+
+.textContent {
+  height: 60%;
+  margin: auto;
+  max-width: 400px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 60%;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.image img {
+  margin: auto;
+  height: 70vh;
+}
+
+@media screen and (max-width: 830px) {
+  .container {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .title {
+    font-size: 20vw;
+  }
+  .image {
+    width: 100%;
+    margin-top: 3rem;
+  }
+  .image img {
+    width: 100%;
+    height: auto;
+  }
+}/*# sourceMappingURL=Error.module.css.map */
