@@ -11,6 +11,7 @@ import Projects from "./components/Projects/Projects";
 import Contact from "./components/Contact/Contact";
 import HomePage from "./pages/HomePage";
 import PrintPage from "./pages/PrintPage";
+import NonePage from "./pages/NonePage";
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="/printing" element={<PrintPage />} />
-          {/* <Route path="*" element={<NoPage />} /> */}
-        </Routes>
+          <Route path="*" element={<NonePage />} />
+          </Routes>
       </HashRouter>
     </div>
   );
