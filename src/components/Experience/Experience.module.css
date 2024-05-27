@@ -44,10 +44,20 @@
     justify-content: center;
     width: 120px;
     height: 120px;
+    transition: 0.2s;
+}
+
+.skillImageContainer:hover {
+    background-color: var(--color-primary);
+}
+
+.skillImageContainer:hover img {
+    width: 85px;
 }
 
 .skillImageContainer img {
     width: 75px;
+    transition: 0.2s;
 }
 
 .skill p {
