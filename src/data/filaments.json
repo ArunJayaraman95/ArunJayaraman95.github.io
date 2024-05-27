@@ -6,7 +6,7 @@
   },
   {
     "color": "Blue",
-    "hex": "##3461eb",
+    "hex": "#3461eb",
     "grams": 935
   },
   {
@@ -30,8 +30,23 @@
     "grams": 275
   },
   {
+    "color": "Hot Pink",
+    "hex": "#ff23d7",
+    "grams": 275
+  },
+  {
+    "color": "Purple",
+    "hex": "#5918a3",
+    "grams": 776
+  },
+  {
+    "color": "Light Pink",
+    "hex": "#f47fd7",
+    "grams": 465
+  },
+  {
     "color": "Blue-Green",
-    "hex": "linear-gradient(90deg, #1b39a6 20%, #0d8244 80%)",
+    "hex": "linear-gradient(90deg, #1b39a6 30%, #0d8244 70%)",
     "grams": 904
   }
 ]
