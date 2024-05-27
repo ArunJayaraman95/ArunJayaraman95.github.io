@@ -21,6 +21,11 @@
   justify-content: center;
   align-items: center;
   outline: 3px solid black;
+  transition: 0.2s;
+
+  &:hover {
+    outline: 5px solid #dcdcdc;
+  }
 
   h3 {
     color: var(--color-text);
