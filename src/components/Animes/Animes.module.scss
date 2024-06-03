@@ -1,0 +1,41 @@
+// src/styles.scss
+
+$card-width: 200px;
+$card-margin: 15px;
+$card-padding: 10px;
+$card-border-radius: 8px;
+$card-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+.alist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $card-margin;
+}
+
+.acard {
+  width: $card-width;
+  margin: $card-margin;
+  padding: $card-padding;
+  background-color: #fff;
+  border-radius: $card-border-radius;
+  box-shadow: $card-box-shadow;
+  text-align: center;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-10px);
+  }
+
+  img {
+    width: 100%;
+    border-radius: $card-border-radius;
+  }
+
+  p {
+    margin-top: $card-padding;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+  }
+}
