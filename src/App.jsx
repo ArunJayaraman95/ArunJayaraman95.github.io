@@ -12,6 +12,7 @@ import Contact from "./components/Contact/Contact";
 import HomePage from "./pages/HomePage";
 import PrintPage from "./pages/PrintPage";
 import NonePage from "./pages/NonePage";
+import Anilist from "./pages/Anilist";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route index element={<HomePage />} />
           <Route path="/printing" element={<PrintPage />} />
+          <Route path="/anilist" element={<Anilist />} />
           <Route path="*" element={<NonePage />} />
           </Routes>
       </HashRouter>

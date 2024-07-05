@@ -27,4 +27,16 @@
   font-size: 1rem;
   font-weight: bold;
   color: #333;
+}
+
+@media screen and (max-width: 500px) {
+  .acard {
+    width: 120px;
+    margin: 15px;
+    padding: 10px;
+    background-color: #fff;
+  }
+  .acard p {
+    font-size: 0.7rem;
+  }
 }/*# sourceMappingURL=Animes.module.css.map */
