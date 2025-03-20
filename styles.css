@@ -3,7 +3,6 @@
     --background-color: #121212;
     --text-color: #ffffff;
     --secondary-color: #333;
-    --card-bg: #222;
 }
 
 body {
@@ -22,10 +21,12 @@ nav {
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
@@ -39,21 +40,10 @@ section {
     text-align: center;
 }
 
-.gallery {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.gallery img {
-    width: 150px;
-    border-radius: 10px;
-}
-
 .anime-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
     justify-content: center;
     padding: 20px;
     max-width: 1200px;
@@ -61,13 +51,9 @@ section {
 }
 
 .anime-item {
-    background: var(--card-bg);
-    padding: 10px;
-    border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: transform 0.2s ease-in-out;
-    max-width: 180px;
+    width: 100%;
 }
 
 .anime-item:hover {
@@ -76,11 +62,16 @@ section {
 
 .anime-item img {
     width: 100%;
-    border-radius: 8px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
 }
 
 .anime-item p {
-    margin-top: 5px;
-    font-size: 14px;
+    margin-top: 10px;
+    font-size: 16px;
     font-weight: bold;
+    text-align: center;
+    word-wrap: break-word;
 }

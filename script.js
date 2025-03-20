@@ -1,46 +1,72 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("https://graphql.anilist.co", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            query: `{
-                MediaListCollection(userName: "SpiderJaw", type: ANIME, status: CURRENT) {
-                    lists {
-                        entries {
-                            media {
-                                title {
-                                    english
+    function fetchAndDisplayList(status, type, elementId) {
+        fetch("https://graphql.anilist.co", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                query: `{
+                    MediaListCollection(userName: "SpiderJaw", type: ${type}, status: ${status}) {
+                        lists {
+                            entries {
+                                media {
+                                    title {
+                                        english
+                                        romaji
+                                    }
+                                    coverImage {
+                                        extraLarge
+                                    }
+                                    chapters
                                 }
-                                coverImage {
-                                    medium
-                                }
+                                progress
                             }
                         }
                     }
-                }
-            }`
+                }`
+            })
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        let animeList = document.getElementById("anime-list");
-        animeList.innerHTML = "";
-        
-        if (data.data.MediaListCollection.lists) {
-            data.data.MediaListCollection.lists.forEach(list => {
-                list.entries.forEach(entry => {
-                    let animeItem = document.createElement("div");
-                    animeItem.classList.add("anime-item");
-                    animeItem.innerHTML = `
-                        <img src="${entry.media.coverImage.medium}" alt="${entry.media.title.english}">
-                        <p>${entry.media.title.english || "No English Title Available"}</p>
-                    `;
-                    animeList.appendChild(animeItem);
+        .then(response => response.json())
+        .then(data => {
+            let animeList = document.getElementById(elementId);
+            animeList.innerHTML = "";
+            let entries = [];
+            
+            if (data.data.MediaListCollection.lists) {
+                data.data.MediaListCollection.lists.forEach(list => {
+                    list.entries.forEach(entry => {
+                        let title = entry.media.title.english || entry.media.title.romaji || "Unknown Title";
+                        let progress = entry.progress || 0;
+                        let totalChapters = entry.media.chapters || "?";
+                        let progressText = type === "MANGA" ? `${progress}/${totalChapters} Chapters` : "";
+                        
+                        entries.push({
+                            title: title,
+                            image: entry.media.coverImage.extraLarge,
+                            progressText: progressText
+                        });
+                    });
                 });
+            }
+            
+            entries.sort((a, b) => a.title.localeCompare(b.title));
+            
+            entries.forEach(entry => {
+                let animeItem = document.createElement("div");
+                animeItem.classList.add("anime-item");
+                animeItem.innerHTML = `
+                    <img src="${entry.image}" alt="${entry.title}">
+                    <p>${entry.title}</p>
+                    <p>${entry.progressText}</p>
+                `;
+                animeList.appendChild(animeItem);
             });
-        } else {
-            animeList.innerHTML = `<p>No currently watching anime found.</p>`;
-        }
-    })
-    .catch(error => console.error("Error fetching AniList data:", error));
+        })
+        .catch(error => console.error("Error fetching AniList data:", error));
+    }
+    
+    fetchAndDisplayList("CURRENT", "ANIME", "anime-list-watching");
+    fetchAndDisplayList("COMPLETED", "ANIME", "anime-list-completed");
+    fetchAndDisplayList("PLANNING", "ANIME", "anime-list-planning");
+    fetchAndDisplayList("CURRENT", "MANGA", "manga-list-current");
+    fetchAndDisplayList("COMPLETED", "MANGA", "manga-list-completed");
 });
