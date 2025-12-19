@@ -1,42 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px dotted red; */
+}
 :root {
-    --primary-color: #ff6600;
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --secondary-color: #333;
+  --nav-height: 56px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: var(--background-color);
-    color: var(--text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #0f0f0f;
+  color: #f2f2f2;
+  line-height: 1.6;
 }
 
-nav {
-    background: var(--primary-color);
-    padding: 10px;
-    text-align: center;
+/* NAVBAR */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: #ff6a00;
+  z-index: 100;
+  margin-bottom: 2rem;
+  height: var(--nav-height);
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 1rem;
+  gap: 2rem;
 }
 
-nav ul li {
-    margin: 0 15px;
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
 }
 
-nav ul li a {
-    color: var(--text-color);
-    text-decoration: none;
+.nav-links a:hover {
+  text-decoration: underline;
 }
 
-section {
-    padding: 50px;
+/* HERO */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+}
+
+.hero-content h2 {
+  font-weight: 400;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  background: #ff6a00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn.secondary {
+  background: #2a2a2a;
+}
+
+/* SECTIONS */
+.section {
+  padding: 4rem 1.5rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* RESUME */
+.resume-block {
+  margin-bottom: 2.5rem;
+}
+
+.resume-item {
+  margin-top: 1rem;
+}
+
+.resume-item h4 {
+  font-size: 1.1rem;
+}
+
+.resume-item span {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* HOBBIES */
+
+#hobbies {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: #1b1b1b;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff6a00;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: #777;
+}
+
+h2 {
     text-align: center;
 }
 
@@ -74,4 +190,15 @@ section {
     font-weight: bold;
     text-align: center;
     word-wrap: break-word;
+}
+
+.anime-header {
+  position: sticky;
+  top: var(--nav-height);        /* match your navbar height */
+  z-index: 10;
+  margin-top: 0;
+  background: #0f0f0f; /* must be opaque */
+  padding: 1rem 0;
+  height: 70px;
+  padding-bottom: 1rem;
 }
