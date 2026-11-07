@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/config.js"></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+<main>
+  <!-- Everything on this page is filler: replace with your real details -->
+  <div class="resume-head">
+    <div>
+      <h1 data-site="name"></h1>
+      <p class="muted" style="margin:0">Software Developer · <span data-site="location"></span> · <span data-site="email"></span></p>
+    </div>
+    <div class="no-print" style="display:flex;gap:8px">
+      <button class="btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
+  </div>
+
+  <h2>Summary</h2>
+  <p>Developer with a few years of experience building web applications. I care about clean UI,
+     fast pages, and code that the next person can actually read.</p>
+
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="item">
+      <h3>Software Engineer · Company Name</h3>
+      <div class="when">Jan 2024 – Present</div>
+      <ul>
+        <li>Built and shipped features used by thousands of customers.</li>
+        <li>Cut page load time by 40% by optimizing the front-end bundle.</li>
+        <li>Mentored two interns and led weekly code reviews.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>Junior Developer · Another Company</h3>
+      <div class="when">Jun 2022 – Dec 2023</div>
+      <ul>
+        <li>Maintained internal tools written in JavaScript and Python.</li>
+        <li>Automated a reporting workflow, saving ~5 hours a week.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>Intern · Startup Inc.</h3>
+      <div class="when">Summer 2021</div>
+      <ul><li>Built a dashboard prototype that became a production feature.</li></ul>
+    </div>
+  </div>
+
+  <h2>Education</h2>
+  <div class="timeline">
+    <div class="item">
+      <h3>B.S. Computer Science · University Name</h3>
+      <div class="when">2018 – 2022</div>
+    </div>
+  </div>
+
+  <h2>Skills</h2>
+  <div class="card">
+    <p><strong>Languages:</strong>
+      <span class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">Python</span><span class="tag">SQL</span></p>
+    <p style="margin-top:8px"><strong>Tools:</strong>
+      <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Git</span><span class="tag">Docker</span></p>
+    <p style="margin-top:8px"><strong>Other:</strong>
+      <span class="tag">UI design</span><span class="tag">Technical writing</span></p>
+  </div>
+</main>
+</body>
+</html>
