@@ -26,6 +26,7 @@ window.ANIME_GROUPS = {
     "BLEACH: Thousand-Year Blood War - The Conflict",
     "BLEACH: Thousand-Year Blood War - The Calamity",
   ],
+  "Boruto": ["Boruto: Naruto Next Generations"],
   "Chainsaw Man": ["Chainsaw Man", "Chainsaw Man – The Movie: Reze Arc"],
   "Cyberpunk: Edgerunners": ["Cyberpunk: Edgerunners", "Cyberpunk: Edgerunners 2"],
   "Demon Slayer": [
@@ -72,9 +73,9 @@ window.ANIME_GROUPS = {
     // "My Hero Academia: Vigilantes",   // spin-off: uncomment to include
   ],
   "Naruto": [
-    "Naruto", "Naruto: Shippuden", "Boruto: Naruto Next Generations",
-    "NARUTO Spin-Off: Rock Lee & His Ninja Pals",
+    "Naruto", "Naruto: Shippuden",
   ],
+  "Rock Lee & His Ninja Pals": ["Rock Lee & His Ninja Pals"],
   "One Piece": ["ONE PIECE", "One Piece Film: Red"],
   "One-Punch Man": ["One-Punch Man", "One-Punch Man Season 2", "One-Punch Man Season 3"],
   "Record of Ragnarok": ["Record of Ragnarok", "Record of Ragnarok II", "Record of Ragnarok III"],
