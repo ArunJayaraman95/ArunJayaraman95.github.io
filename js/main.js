@@ -6,7 +6,7 @@
     ["resume.html", "Resume"],
     ["hobbies.html", "Hobbies"],
     ["anime.html", "Anime"],
-    ["tierlist.html", "Tier Lists"],
+    ["favorites.html", "Favorites"],
     ["faq.html", "FAQ"],
   ];
   const here = location.pathname.split("/").pop() || "index.html";

@@ -8,7 +8,7 @@ const HOBBY_MAP = [
     name: "Sports", emoji: "🎾", color: "#ff7a59",
     hobbies: [
       ["🎾", "Tennis"], ["🥒", "Pickleball"], ["🏸", "Badminton"], ["🏓", "Table Tennis"],
-      ["🥎", "Racquetball"], ["🏐", "Volleyball"], ["⛳", "Golf"],
+      ["🔵", "Racquetball"], ["🏐", "Volleyball"], ["⛳", "Golf"],
     ],
   },
   {
@@ -31,7 +31,7 @@ const HOBBY_MAP = [
   },
   {
     name: "Entertainment", emoji: "🎮", color: "#5b8cff",
-    hobbies: [["📺", "Anime"], ["🎮", "Video Games"]],
+    hobbies: [["📺", "Anime"], ["🎮", "Video Games"], ["♦️", "Poker"]],
   },
 ];
 // ============================================================
