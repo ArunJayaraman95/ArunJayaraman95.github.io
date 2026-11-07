@@ -116,8 +116,67 @@ h2 { font-size: 1.4rem; margin-top: 1.6em; }
   .card { box-shadow: none; }
 }
 
-/* Hobbies */
-.hobby .emoji { font-size: 2rem; }
+/* Hobbies mind map */
+.mindmap {
+  position: relative; height: 620px; margin-top: 24px; overflow: hidden;
+  border: 1px solid var(--border); border-radius: 20px; background-color: var(--surface);
+  background-image: radial-gradient(var(--border) 1px, transparent 1px); background-size: 22px 22px;
+  user-select: none;
+}
+.mindmap.compact { height: 640px; }
+.mm-world {
+  position: absolute; left: 0; top: 0; width: 0; height: 0; transform-origin: 0 0;
+  transition: transform .7s cubic-bezier(.65,0,.25,1);
+}
+.mm-lines { position: absolute; left: 0; top: 0; width: 1px; height: 1px; overflow: visible; pointer-events: none; }
+.mm-link { fill: none; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 2 7; opacity: .7; transition: opacity .4s; }
+
+.mm-center {
+  position: absolute; transform: translate(-50%, -50%); border-radius: 50%;
+  display: grid; place-items: center; color: #fff; font-weight: 800; font-size: 1.1rem; white-space: nowrap;
+  background: linear-gradient(135deg, var(--accent), #ff7ac6); box-shadow: var(--shadow);
+  transition: opacity .4s, filter .4s;
+}
+
+.mm-bubble {
+  position: absolute; transform: translate(-50%, -50%); border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer; outline: none;
+  background: color-mix(in srgb, var(--c) 12%, var(--surface));
+  border: 2px solid color-mix(in srgb, var(--c) 70%, transparent);
+  box-shadow: var(--shadow);
+  animation: mm-float 6s ease-in-out infinite var(--float-delay, 0s);
+  transition: scale .25s, box-shadow .25s, opacity .4s, filter .4s;
+}
+.mm-bubble:hover, .mm-bubble:focus-visible {
+  scale: 1.04; box-shadow: 0 0 0 6px color-mix(in srgb, var(--c) 25%, transparent), var(--shadow);
+}
+.mm-bubble.active { scale: 1; animation-play-state: paused; cursor: zoom-out; z-index: 2; }
+@keyframes mm-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -5px; } }
+
+.mm-content { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.mm-title {
+  display: flex; align-items: center; gap: 6px; font-weight: 800; font-size: 1rem; text-align: center;
+  color: color-mix(in srgb, var(--c) 65%, var(--text));
+}
+.mm-title .emoji { font-size: 1.3rem; }
+.mm-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+.mm-pill {
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px 4px 7px;
+  border-radius: 999px; background: var(--surface); border: 1.5px solid color-mix(in srgb, var(--c) 55%, transparent);
+  font-weight: 600; font-size: .8rem; white-space: nowrap; color: var(--text);
+  box-shadow: 0 1px 2px rgba(0,0,0,.06);
+}
+.mm-pill .emoji { font-size: .95rem; }
+
+/* zoomed into one bubble: fade the rest */
+.mindmap.zoomed .mm-center, .mindmap.zoomed .mm-bubble:not(.active) { opacity: .25; filter: blur(1px); }
+.mindmap.zoomed .mm-link { opacity: .15; }
+.mm-back { position: absolute; top: 12px; left: 12px; z-index: 5; background: var(--surface); padding: 6px 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-world, .mm-bubble, .mm-center { transition: none !important; }
+  .mm-bubble { animation: none; }
+}
 
 /* Anime */
 .stats { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin: 16px 0 24px; }
