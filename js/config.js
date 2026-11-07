@@ -11,6 +11,6 @@ window.SITE = {
   socials: [
     { label: "GitHub",   url: "https://github.com/" },
     { label: "LinkedIn", url: "https://linkedin.com/" },
-    { label: "AniList",  url: "https://anilist.co/" },
+    { label: "AniList",  url: "https://anilist.co/user/SpiderJaw" },
   ],
 };
