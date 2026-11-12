@@ -121,12 +121,20 @@
     $("types").innerHTML = [["anime", "Anime"], ["manga", "Manga"]].map(([k, l]) =>
       `<button class="chip" data-type="${k}" aria-pressed="${k === type}">${l}</button>`).join("");
   }
+  // Items for one status: only entries with that status are included, and
+  // groups are only kept together outside the "current" tab.
+  function itemsFor(status) {
+    return data[type].flatMap(it => {
+      const members = it.entries.filter(e => e.status === status);
+      if (!members.length) return [];
+      if (it.kind === "single") return [it];
+      if (status === "CURRENT" || members.length === 1) return members.map(makeSingle);
+      return [makeGroup(it.title, members)];
+    });
+  }
   function renderFilters() {
-    const counts = {};
-    for (const it of data[type])
-      for (const st of new Set(it.entries.map(e => e.status))) counts[st] = (counts[st] || 0) + 1;
     $("filters").innerHTML = STATUS_LABELS[type].map(([k, l]) =>
-      `<button class="chip" data-status="${k}" aria-pressed="${k === filter}">${l} (${counts[k] || 0})</button>`).join("");
+      `<button class="chip" data-status="${k}" aria-pressed="${k === filter}">${l} (${itemsFor(k).length})</button>`).join("");
   }
   function renderStats() {
     const s = userStats[type];
@@ -205,8 +213,7 @@
   function render() {
     const q = norm($("search").value);
     const sort = $("sort").value;
-    shown = data[type]
-      .filter(it => it.entries.some(e => e.status === filter))
+    shown = itemsFor(filter)
       .filter(it => !q || norm(it.title).includes(q) || it.entries.some(e =>
         Object.values(e.media.title).some(t => t && norm(t).includes(q))))
       .sort((a, b) =>
