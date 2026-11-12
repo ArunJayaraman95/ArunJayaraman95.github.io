@@ -15,35 +15,41 @@
     query ($name: String) {
       User(name: $name) {
         name siteUrl
-        statistics { anime { count meanScore episodesWatched minutesWatched } }
+        statistics {
+          anime { count meanScore episodesWatched minutesWatched }
+          manga { count meanScore chaptersRead volumesRead }
+        }
       }
-      MediaListCollection(userName: $name, type: ANIME) {
-        lists {
-          isCustomList
-          entries {
-            status progress updatedAt
-            score(format: POINT_10_DECIMAL)
-            media {
-              id siteUrl episodes format seasonYear
-              title { userPreferred english romaji }
-              coverImage { large }
-            }
+      anime: MediaListCollection(userName: $name, type: ANIME) { ...lists }
+      manga: MediaListCollection(userName: $name, type: MANGA) { ...lists }
+    }
+    fragment lists on MediaListCollection {
+      lists {
+        isCustomList
+        entries {
+          status progress updatedAt
+          score(format: POINT_10_DECIMAL)
+          media {
+            id siteUrl episodes chapters format seasonYear
+            title { userPreferred english romaji }
+            coverImage { large }
           }
         }
       }
     }`;
 
-  const STATUSES = [
-    ["CURRENT", "Watching"], ["COMPLETED", "Completed"],
-    ["PLANNING", "Plan to watch"], ["PAUSED", "Paused"], ["DROPPED", "Dropped"],
-  ];
+  const STATUS_LABELS = {
+    anime: [["CURRENT", "Watching"], ["COMPLETED", "Completed"]],
+    manga: [["CURRENT", "Reading"], ["COMPLETED", "Completed"]],
+  };
   const titleOf = e => e.media.title.english || e.media.title.userPreferred;
   // Fan layout: degrees between cards, max total spread, pivot distance (× card height)
   const FAN_STEP = 16, FAN_MAX = 96, FAN_ORIGIN = 2.2;
-  let items = [], shown = [], filter = "CURRENT";
+  let type = "anime", filter = "CURRENT", shown = [];
+  const data = {};   // type -> { items, stats }
 
   // ---------- Fetch ----------
-  let entries;
+  let raw, userStats;
   try {
     const res = await fetch("https://graphql.anilist.co", {
       method: "POST",
@@ -55,19 +61,8 @@
 
     const u = json.data.User;
     $("anilist-link").href = u.siteUrl;
-    const s = u.statistics.anime;
-    $("stats").innerHTML = [
-      [s.count, "Anime"],
-      [s.episodesWatched.toLocaleString(), "Episodes"],
-      [(s.minutesWatched / 1440).toFixed(1), "Days watched"],
-      [s.meanScore ? s.meanScore.toFixed(1) : "–", "Mean score"],
-    ].map(([n, l]) => `<div class="stat"><div class="num">${n}</div><div class="label">${l}</div></div>`).join("");
-
-    // Custom lists duplicate entries from the standard lists, so skip them
-    entries = json.data.MediaListCollection.lists
-      .filter(l => !l.isCustomList)
-      .flatMap(l => l.entries)
-      .map(e => ({ ...e, status: e.status === "REPEATING" ? "CURRENT" : e.status }));
+    userStats = u.statistics;
+    raw = json.data;
   } catch (err) {
     $("list").outerHTML = `<div class="notice">
       Couldn't load the AniList profile <strong>${esc(user)}</strong> (${esc(err.message)}).<br>
@@ -77,24 +72,37 @@
   }
 
   // ---------- Build groups ----------
-  const lookup = new Map();
-  for (const e of entries) {
-    lookup.set(String(e.media.id), e);
-    for (const t of Object.values(e.media.title)) if (t) lookup.set(norm(t), e);
-  }
-  const used = new Set();
-  for (const [name, list] of Object.entries(GROUPS)) {
-    const members = [];
-    for (const ref of list) {
-      const e = lookup.get(typeof ref === "number" ? String(ref) : norm(ref));
-      if (!e) { console.warn(`[anime-groups] "${name}": no list entry matches "${ref}"`); continue; }
-      if (used.has(e)) { console.warn(`[anime-groups] "${ref}" is already in another group`); continue; }
-      used.add(e); members.push(e);
+  function buildItems(collection, useGroups) {
+    // Custom lists duplicate entries from the standard lists, so skip them
+    const entries = collection.lists
+      .filter(l => !l.isCustomList)
+      .flatMap(l => l.entries)
+      .map(e => ({ ...e, status: e.status === "REPEATING" ? "CURRENT" : e.status }));
+    const items = [];
+    const used = new Set();
+    if (useGroups) {
+      const lookup = new Map();
+      for (const e of entries) {
+        lookup.set(String(e.media.id), e);
+        for (const t of Object.values(e.media.title)) if (t) lookup.set(norm(t), e);
+      }
+      for (const [name, list] of Object.entries(GROUPS)) {
+        const members = [];
+        for (const ref of list) {
+          const e = lookup.get(typeof ref === "number" ? String(ref) : norm(ref));
+          if (!e) { console.warn(`[anime-groups] "${name}": no list entry matches "${ref}"`); continue; }
+          if (used.has(e)) { console.warn(`[anime-groups] "${ref}" is already in another group`); continue; }
+          used.add(e); members.push(e);
+        }
+        if (members.length > 1) items.push(makeGroup(name, members));
+        else if (members.length === 1) items.push(makeSingle(members[0]));
+      }
     }
-    if (members.length > 1) items.push(makeGroup(name, members));
-    else if (members.length === 1) items.push(makeSingle(members[0]));
+    for (const e of entries) if (!used.has(e)) items.push(makeSingle(e));
+    return items;
   }
-  for (const e of entries) if (!used.has(e)) items.push(makeSingle(e));
+  data.anime = buildItems(raw.anime, true);
+  data.manga = buildItems(raw.manga, false);
 
   function makeSingle(e) {
     return { kind: "single", title: titleOf(e), entries: [e], score: e.score, updatedAt: e.updatedAt };
@@ -109,11 +117,37 @@
   }
 
   // ---------- Filters ----------
-  const counts = {};
-  for (const it of items)
-    for (const st of new Set(it.entries.map(e => e.status))) counts[st] = (counts[st] || 0) + 1;
-  $("filters").innerHTML = STATUSES.map(([k, l]) =>
-    `<button class="chip" data-status="${k}" aria-pressed="${k === filter}">${l} (${counts[k] || 0})</button>`).join("");
+  function renderTabs() {
+    $("types").innerHTML = [["anime", "Anime"], ["manga", "Manga"]].map(([k, l]) =>
+      `<button class="chip" data-type="${k}" aria-pressed="${k === type}">${l}</button>`).join("");
+  }
+  function renderFilters() {
+    const counts = {};
+    for (const it of data[type])
+      for (const st of new Set(it.entries.map(e => e.status))) counts[st] = (counts[st] || 0) + 1;
+    $("filters").innerHTML = STATUS_LABELS[type].map(([k, l]) =>
+      `<button class="chip" data-status="${k}" aria-pressed="${k === filter}">${l} (${counts[k] || 0})</button>`).join("");
+  }
+  function renderStats() {
+    const s = userStats[type];
+    const rows = type === "anime" ? [
+      [s.count, "Anime"],
+      [s.episodesWatched.toLocaleString(), "Episodes"],
+      [(s.minutesWatched / 1440).toFixed(1), "Days watched"],
+    ] : [
+      [s.count, "Manga"],
+      [s.chaptersRead.toLocaleString(), "Chapters"],
+      [s.volumesRead.toLocaleString(), "Volumes"],
+    ];
+    rows.push([s.meanScore ? s.meanScore.toFixed(1) : "–", "Mean score"]);
+    $("stats").innerHTML = rows.map(([n, l]) =>
+      `<div class="stat"><div class="num">${n}</div><div class="label">${l}</div></div>`).join("");
+  }
+  $("types").addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b || b.dataset.type === type) return;
+    type = b.dataset.type; filter = "CURRENT";
+    renderTabs(); renderFilters(); renderStats(); render();
+  });
   $("filters").addEventListener("click", e => {
     const b = e.target.closest(".chip"); if (!b) return;
     filter = b.dataset.status;
@@ -124,7 +158,9 @@
   $("sort").addEventListener("change", render);
 
   // ---------- Render ----------
-  const epText = e => `${e.progress}/${e.media.episodes ?? "?"} ep`;
+  const epText = e => type === "anime"
+    ? `${e.progress}/${e.media.episodes ?? "?"} ep`
+    : `${e.progress}/${e.media.chapters ?? "?"} ch`;
   const scoreText = s => (s ? "★ " + s : "");
 
   function singleHTML(it) {
@@ -169,7 +205,7 @@
   function render() {
     const q = norm($("search").value);
     const sort = $("sort").value;
-    shown = items
+    shown = data[type]
       .filter(it => it.entries.some(e => e.status === filter))
       .filter(it => !q || norm(it.title).includes(q) || it.entries.some(e =>
         Object.values(e.media.title).some(t => t && norm(t).includes(q))))
@@ -270,5 +306,5 @@
     setActive(g, cardAt(g, ev.clientX, ev.clientY));
   });
 
-  render();
+  renderTabs(); renderFilters(); renderStats(); render();
 })();
