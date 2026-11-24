@@ -1,4 +1,4 @@
-# AiSite
+# Personal Website
 
 Personal website, hosted with GitHub Pages. It's a static site made of plain HTML, CSS, and JavaScript, with no build step.
 
